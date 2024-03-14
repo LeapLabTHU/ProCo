@@ -55,8 +55,6 @@ parser.add_argument('--wd', '--weight-decay', default=5e-4, type=float,
                     dest='weight_decay')
 parser.add_argument('-p', '--print-freq', default=200, type=int,
                     metavar='N', help='print frequency (default: 200)')
-parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
-                    help='evaluate model on validation set')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 parser.add_argument('--gpu', default=None, type=int,
@@ -78,9 +76,11 @@ parser.add_argument('--randaug_n', default=2, type=int, help='randaug-n')
 parser.add_argument('--seed', default=None, type=int, help='seed for initializing training')
 parser.add_argument('--reload', default=False, type=bool, help='load supervised model')
 parser.add_argument('--mark', type=str)
+parser.add_argument('--run_exp', default=0, type=int, help='experiment index')
 
 parser.add_argument('--debug', default=False, type=bool_flag)
-parser.add_argument('--test', default=None, type=str)
+parser.add_argument('--test', nargs='?', const=None, default=None, type=str, help='test model')
+
 
 
 def main():
@@ -321,7 +321,7 @@ def main_worker(gpu, ngpus_per_node, args):
                   .format(args.test, checkpoint['epoch'], best_acc1))
             args.reload = True
         else:
-            logger.info("=> no checkpoint found at '{}'".format(args.resume))
+            logger.info("=> no checkpoint found at '{}'".format(args.test))
             raise FileNotFoundError
     else:
         filename = os.path.join(args.root_log, args.store_name, 'ckpt.pth.tar')
@@ -543,7 +543,9 @@ def validate(train_loader, val_loader, model, criterion_ce, epoch, args, tf_writ
             inputs, targets = inputs.cuda(non_blocking=True), targets.cuda(non_blocking=True)
             _, ce_logits, _ = model(inputs)
 
+
             logits = ce_logits
+
 
             total_logits = torch.cat((total_logits, logits))
             total_labels = torch.cat((total_labels, targets))

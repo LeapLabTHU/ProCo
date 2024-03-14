@@ -10,6 +10,7 @@ epochs=90
 use_norm=True
 data="/home/data/imagenet" # replace with your own path
 root_log=saved
+test=$1 # checkpoint path
 
 mark=${arch}_dataset${dataset}_wd${wd}_lr${lr}_batch_size${batch_size}_N_GPU${N_GPU}_epochs${epochs}_use_norm${use_norm}
 output_dir=./${root_log}/${mark}
@@ -31,4 +32,5 @@ torchrun --rdzv_backend=c10d --rdzv_endpoint=localhost:${PORT} \
 	--wd ${wd} \
 	--lr ${lr} \
 	--dataset ${dataset} \
-	--root_log ${root_log}
+	--root_log ${root_log} \
+	--test ${test}

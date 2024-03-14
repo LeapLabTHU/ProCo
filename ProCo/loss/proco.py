@@ -229,7 +229,7 @@ class ProCoLoss(nn.Module):
             self.weight = self.weight.to(torch.device('cuda'))
 
     def reload_memory(self):
-        print("reload memory")
+
         self.estimator_old.reload_memory()
         self.estimator.reload_memory()
 
