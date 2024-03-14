@@ -1,27 +1,30 @@
-import torch
-
+from tensorboardX import SummaryWriter
 import builtins
-import time
+import warnings
+import argparse
+import logging
+import random
 import shutil
-from torchvision.transforms import transforms
-from torch.nn.utils import clip_grad_norm_
-import torch.nn.functional as F
+import time
+import math
+import os
+
+
+from randaugment import rand_augment_transform
+from dataset.imagenet import ImageNetLT
+from dataset.inat import INaturalist
 from loss.logitadjust import LogitAdjust
 from loss.proco import ProCoLoss
-import math
-from tensorboardX import SummaryWriter
-from dataset.inat import INaturalist
-from dataset.imagenet import ImageNetLT
+from utils import shot_acc, bool_flag
 from models import resnext
-import warnings
+
+
+from torchvision.transforms import transforms
+from torch.nn.utils import clip_grad_norm_
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
-import random
-from randaugment import rand_augment_transform
-from utils import shot_acc, bool_flag
-import argparse
-import os
-import logging
+import torch.nn.functional as F
+import torch
 
 logger = logging.getLogger('my_logger')
 logger.setLevel(logging.DEBUG)
@@ -317,12 +320,6 @@ def main_worker(gpu, ngpus_per_node, args):
             logger.info("=> loaded checkpoint '{}' (epoch {}, best_acc1 {})"
                   .format(args.test, checkpoint['epoch'], best_acc1))
             args.reload = True
-
-
-
-
-
-
         else:
             logger.info("=> no checkpoint found at '{}'".format(args.resume))
             raise FileNotFoundError
@@ -362,11 +359,6 @@ def main_worker(gpu, ngpus_per_node, args):
                     logger.info(f"=> reload best checkpoint '{filename}' (epoch {checkpoint['epoch']}, best_acc1 {best_acc1}, best_many {best_many}, best_med {best_med}, best_few {best_few})")
                     model.load_state_dict(checkpoint['state_dict'])
                     optimizer.load_state_dict(checkpoint['optimizer'])
-
-
-
-
-
             else:
                 logger.info("=> no checkpoint found at '{}'".format(args.resume))
 
@@ -391,12 +383,8 @@ def main_worker(gpu, ngpus_per_node, args):
             test_dataset, batch_size=args.batch_size, shuffle=False,
             num_workers=args.workers, pin_memory=True, sampler=test_sampler)
 
-
-
         acc1, many, med, few = validate(train_loader, test_loader, model, criterion_ce, 1, args)
         logger.info('Prec@1: {:.3f}, Many Prec@1: {:.3f}, Med Prec@1: {:.3f}, Few Prec@1: {:.3f}'.format(acc1, many, med, few))
-
-
         return
 
 
@@ -464,8 +452,6 @@ def main_worker(gpu, ngpus_per_node, args):
     logger.info(f"=> reload best checkpoint '{filename}' (epoch {checkpoint['epoch']}, best_acc1 {best_acc1}, best_many {best_many}, best_med {best_med}, best_few {best_few})")
     model.load_state_dict(checkpoint['state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer'])
-
-
 
     acc1, many, med, few = validate(train_loader, test_loader, model, criterion_ce, 1, args)
     logger.info('Prec@1: {:.3f}, Many Prec@1: {:.3f}, Med Prec@1: {:.3f}, Few Prec@1: {:.3f}'.format(acc1, many, med, few))
@@ -587,10 +573,6 @@ def validate(train_loader, val_loader, model, criterion_ce, epoch, args, tf_writ
 
         _, preds = F.softmax(total_logits, dim=1).max(dim=1)
         many_acc_top1, median_acc_top1, low_acc_top1 = shot_acc(preds, total_labels, train_loader, acc_per_cls=False)
-
-
-
-
         return top1.avg, many_acc_top1*100, median_acc_top1*100, low_acc_top1*100
 
 
