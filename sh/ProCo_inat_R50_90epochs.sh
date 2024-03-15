@@ -10,7 +10,7 @@ epochs=90
 use_norm=True
 data="/home/data/iNaturalist18" # replace with your own path
 root_log=saved
-test=$1 # checkpoint path
+test=$1 # checkpoint path (default: None)
 
 mark=${arch}_dataset${dataset}_wd${wd}_lr${lr}_batch_size${batch_size}_N_GPU${N_GPU}_epochs${epochs}_use_norm${use_norm}
 output_dir=./${root_log}/${mark}

@@ -20,7 +20,7 @@ from models import resnext
 
 
 from torchvision.transforms import transforms
-from torch.nn.utils import clip_grad_norm_
+#from torch.nn.utils import clip_grad_norm_
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
 import torch.nn.functional as F
@@ -500,7 +500,7 @@ def train(train_loader, model, criterion_ce, criterion_scl, optimizer, epoch, ar
 
         loss.backward()
 
-        clip_grad_norm_(model.parameters(), 1.0)
+        #clip_grad_norm_(model.parameters(), 1.0)
         optimizer.step()
         optimizer.zero_grad()
 
@@ -586,14 +586,6 @@ def save_checkpoint(args, state, is_best):
     if is_best:
         shutil.copyfile(filename, filename.replace('pth.tar', 'best.pth.tar'))
 
-
-class TwoCropTransform:
-    def __init__(self, transform1, transform2):
-        self.transform1 = transform1
-        self.transform2 = transform2
-
-    def __call__(self, x):
-        return [self.transform1(x), self.transform2(x), self.transform2(x)]
 
 
 def adjust_lr(optimizer, epoch, args):
