@@ -20,7 +20,6 @@ from models import resnext
 
 
 from torchvision.transforms import transforms
-#from torch.nn.utils import clip_grad_norm_
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
 import torch.nn.functional as F
@@ -498,11 +497,9 @@ def train(train_loader, model, criterion_ce, criterion_scl, optimizer, epoch, ar
         acc1 = accuracy(logits, targets, topk=(1,))
         top1.update(acc1[0].item(), batch_size)
 
-        loss.backward()
-
-        #clip_grad_norm_(model.parameters(), 1.0)
-        optimizer.step()
         optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
 
         batch_time.update(time.time() - end)
