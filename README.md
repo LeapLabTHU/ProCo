@@ -15,19 +15,7 @@ Second, we derived a closed form of expected supervised contrastive loss for opt
 This eliminates the inherent limitation of supervised contrastive learning that requires a large number of samples to achieve satisfactory performance.
 
 
-## Citation
 
-If you find this code useful, please consider citing our paper:
-
-```[tex]
-@article{du2024probabilistic,
-  title={Probabilistic Contrastive Learning for Long-Tailed Visual Recognition},
-  author={Du, Chaoqun and Wang, Yulin and Song, Shiji and Huang, Gao},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year={2024},
-  publisher={IEEE}
-}
-```
 
 ## Results
 
@@ -72,7 +60,19 @@ For example, if you want to evaluate the model trained with 90 epochs on ImageNe
 bash sh/ProCo_ImageNetLT_R50_90epochs.sh ${checkpoint_path}
 ```
 
+## Citation
 
+If you find this code useful, please consider citing our paper:
+
+```[tex]
+@article{du2024probabilistic,
+  title={Probabilistic Contrastive Learning for Long-Tailed Visual Recognition},
+  author={Du, Chaoqun and Wang, Yulin and Song, Shiji and Huang, Gao},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024},
+  publisher={IEEE}
+}
+```
 
 ## Contact
 
