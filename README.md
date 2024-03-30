@@ -1,6 +1,16 @@
 # Probabilistic Contrastive Learning for Long-Tailed Visual Recognition
 
-This repository contains the Pytorch implementation of the T-PAMI 2024 paper "[Probabilistic Contrastive Learning for Long-Tailed Visual Recognition](https://arxiv.org/abs/2403.06726)".
+This repository contains the Pytorch implementation of the T-PAMI 2024 paper "Probabilistic Contrastive Learning for Long-Tailed Visual Recognition".
+
+> **Probabilistic Contrastive Learning for Long-Tailed Visual Recognition**<br>
+> [Chaoqun Du](https://scholar.google.com/citations?user=0PSKJuYAAAAJ&hl=en),
+> [Yulin Wang](https://www.wyl.cool/),
+> [Shiji Song](https://scholar.google.com/citations?user=rw6vWdcAAAAJ&hl=en&oi=ao),
+> [Gao Huang](https://www.gaohuang.net),
+
+[![TPAMI](https://img.shields.io/badge/TPAMI2024-ProCo-green)](https://ieeexplore.ieee.org/abstract/document/10444057)
+[![arXiv](https://img.shields.io/badge/arxiv-ProCo-blue)](hhttps://arxiv.org/abs/2403.06726)
+
 
 ## Introduction
 
@@ -71,6 +81,10 @@ For example, if you want to evaluate the model trained with 90 epochs on ImageNe
 ```[bash]
 bash sh/ProCo_ImageNetLT_R50_90epochs.sh ${checkpoint_path}
 ```
+
+## ToDo
+
+- [ ] Long-tailed Semi-Supervised Learning.
 
 
 
