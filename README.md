@@ -9,7 +9,7 @@ This repository contains the Pytorch implementation of the T-PAMI 2024 paper "Pr
 > [Gao Huang](https://www.gaohuang.net),
 
 [![TPAMI](https://img.shields.io/badge/TPAMI2024-ProCo-green)](https://ieeexplore.ieee.org/abstract/document/10444057)
-[![arXiv](https://img.shields.io/badge/arxiv-ProCo-blue)](hhttps://arxiv.org/abs/2403.06726)
+[![arXiv](https://img.shields.io/badge/arxiv-ProCo-blue)](https://arxiv.org/abs/2403.06726)
 
 
 ## Introduction
