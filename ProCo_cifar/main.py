@@ -69,7 +69,6 @@ parser.add_argument('--seed', default=None, type=int, help='seed for initializin
 parser.add_argument('--reload', default=False, type=bool, help='load supervised model')
 parser.add_argument('--mark', type=str)
 
-parser.add_argument('--debug', default=False, type=bool_flag)
 parser.add_argument('--test', nargs='?', const=None, default=None, type=str, help='test model')
 
 
