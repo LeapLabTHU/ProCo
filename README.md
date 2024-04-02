@@ -61,13 +61,13 @@ We also provide the tensorboard logs for the CIFAR experiments in the logs folde
 - tensorboard 2.11
 - scipy 1.9.3
 
-Above environment is recommended, but not necessary. You can also use other versions of the packages.
+The above environment is recommended, but not necessary. You can also use other versions of the packages.
 
 
 
 ### Training
 
-By default, we use 1$*$RTX3090 GPU for CIFAR,  4$*$RTX3090 GPUs for ImageNet training and 8$*$A100 (40G) GPUs for iNaturalist2018 training. You can adjust the batch size according to your GPU memory.
+By default, we use 1 RTX3090 GPU for CIFAR, 4 RTX3090 GPUs for ImageNet training, and 8 A100 (40G) GPUs for iNaturalist2018 training. You can adjust the batch size according to your GPU memory.
 
 ```[bash]
 bash sh/ProCo_CIFAR.sh ${dataset} ${imbalance_factor} ${epochs}
