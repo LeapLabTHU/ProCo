@@ -40,7 +40,7 @@ This eliminates the inherent limitation of supervised contrastive learning that 
 |  ProCo   |  CIFAR10-LT   |10         |       200      |       91.9        |      [Tsinghua   Cloud](https://cloud.tsinghua.edu.cn/f/2fe00aacba6b48a2b689/?dl=1)/[Google   Drive](https://drive.google.com/file/d/1bl7Ipq5kFgou6WszYHAAuO_qyRTRIgJE/view?usp=drive_link)
 
 
-We also provide the tensorboard logs for the CIFAR experiment in the logs folder.
+We also provide the tensorboard logs for the CIFAR experiments in the logs folder.
 
 
 
