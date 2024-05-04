@@ -12,6 +12,11 @@ This repository contains the Pytorch implementation of the T-PAMI 2024 paper "Pr
 [![arXiv](https://img.shields.io/badge/arxiv-ProCo-blue)](https://arxiv.org/abs/2403.06726)
 
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/probabilistic-contrastive-learning-for-long/long-tail-learning-on-inaturalist-2018)](https://paperswithcode.com/sota/long-tail-learning-on-inaturalist-2018?p=probabilistic-contrastive-learning-for-long)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/probabilistic-contrastive-learning-for-long/long-tail-learning-on-imagenet-lt)](https://paperswithcode.com/sota/long-tail-learning-on-imagenet-lt?p=probabilistic-contrastive-learning-for-long)
+
+
+
 ## Introduction
 
 <p align="center">
