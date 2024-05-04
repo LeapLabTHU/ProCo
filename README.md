@@ -56,10 +56,14 @@ We also provide the tensorboard logs for the CIFAR experiments in the logs folde
 ### Requirements
 
 - python 3.9
-- pytorch 1.12.1
-- torchvision 0.13.1
-- tensorboard 2.11
+- numpy 1.23.3
+- Pillow 8.2.0
+- Requests 2.25.1
 - scipy 1.9.3
+- tensorboardX 2.5.1
+- torch 1.12.1
+- torchvision 0.13.1
+
 
 The above environment is recommended, but not necessary. You can also use other versions of the packages.
 
