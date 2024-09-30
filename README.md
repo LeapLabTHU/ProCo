@@ -2,7 +2,7 @@
 
 This repository contains the Pytorch implementation of the T-PAMI 2024 paper [Probabilistic Contrastive Learning for Long-Tailed Visual Recognition](https://arxiv.org/pdf/2403.06726).
 
-Authors: [Chaoqun Du](https://scholar.google.com/citations?user=0PSKJuYAAAAJ&hl=en), [Yulin Wang](https://www.wyl.cool/), [Shiji Song](https://scholar.google.com/citations?user=rw6vWdcAAAAJ&hl=en&oi=ao), [Gao Huang](https://www.gaohuang.net).
+Authors: [Chaoqun Du](https://andy-du20.github.io/), [Yulin Wang](https://www.wyl.cool/), [Shiji Song](https://scholar.google.com/citations?user=rw6vWdcAAAAJ&hl=en&oi=ao), [Gao Huang](https://www.gaohuang.net).
 
 [![TPAMI](https://img.shields.io/badge/TPAMI2024-ProCo-green)](https://ieeexplore.ieee.org/abstract/document/10444057)
 [![arXiv](https://img.shields.io/badge/arxiv-ProCo-blue)](https://arxiv.org/pdf/2403.06726)
